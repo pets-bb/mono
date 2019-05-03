@@ -1,0 +1,37 @@
+{
+  "name": "pets-bb",
+  "version": "0.0.0",
+  "description": "The infrastructure of TypeScript project",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": [
+      "eslint --fix"
+    ]
+  },
+  "license": "MIT",
+  "scripts": {
+    "transcrypt": "curl -s https://raw.githubusercontent.com/elasticdog/transcrypt/master/transcrypt | bash -s --",
+    "lint": "eslint . --ignore-path .gitignore --ext .ts --ext .tsx --ext .js"
+  },
+  "devDependencies": {
+    "@ts-mono/base": "rwu823/ts-mono#base/latest",
+    "@types/koa": "^2.0.48",
+    "@types/koa-router": "^7.0.40",
+    "@types/react": "^16.8.15",
+    "@types/react-dom": "^16.8.4",
+    "@types/styled-components": "^4.1.14",
+    "@zeit/next-typescript": "^1.1.1",
+    "babel-plugin-styled-components": "^1.10.0",
+    "rollup": "^1.11.0",
+    "rollup-plugin-typescript2": "^0.21.0",
+    "sh-exec": "^2.1.0"
+  }
+}
