@@ -1,7 +1,9 @@
 import is from './is'
 
-const isBrowser = is.document(globalThis.document)
-const isNode = is.process(globalThis.process)
+const Global = (1, eval)('this') // eslint-disable-line no-eval
+
+const isBrowser = is.document(Global.document)
+const isNode = is.process(Global.process)
 
 const env = process.env.NODE_ENV || 'development'
 const isDev = env === 'development'

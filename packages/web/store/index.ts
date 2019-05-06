@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose, Middleware } from 'redux'
 import { isDev } from '@pets-bb/share'
-import reducers from './reducers'
+
+import rootReducer from './rootReducer'
 
 declare global {
   interface Window {
@@ -31,8 +32,14 @@ if (isDev) {
 
 export default (initState = {}) => {
   return createStore(
-    reducers,
+    rootReducer,
     initState,
     composeEnhancers(applyMiddleware(...middleware)),
   )
+}
+
+export type InitState = {
+  login: {
+    isLogin: boolean
+  }
 }

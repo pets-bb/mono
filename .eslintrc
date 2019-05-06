@@ -2,8 +2,16 @@
   "extends": [
     "./node_modules/@ts-mono/base/.eslintrc"
   ],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
   "rules": {
     "no-param-reassign": 0,
-    "import/no-extraneous-dependencies": [1]
+
+    "import/no-extraneous-dependencies": [1],
+
+    "react/prop-types": 0
   }
 }
