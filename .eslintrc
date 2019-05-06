@@ -1,5 +1,9 @@
 {
   "extends": [
     "./node_modules/@ts-mono/base/.eslintrc"
-  ]
+  ],
+  "rules": {
+    "no-param-reassign": 0,
+    "import/no-extraneous-dependencies": [1]
+  }
 }

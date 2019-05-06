@@ -3,14 +3,14 @@ import styled, { css } from 'styled-components'
 
 const Div = styled.div`
   ${(_p: {}) => css`
-    color: blue;
+    color: red;
   `}
 `
 
 type Props = {}
 
 const App: React.FunctionComponent<Props> = _props => {
-  return <Div>Hello Pets BB!</Div>
+  return <Div>This is Users page.</Div>
 }
 
 export default App
