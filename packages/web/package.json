@@ -14,8 +14,9 @@
     "universal-rxjs-ajax": "^2.0.1"
   },
   "optionalDependencies": {
+    "@pets-bb/share": "0.0.0",
     "@pets-bb/web": "0.0.0",
-    "@pets-bb/share": "0.0.0"
+    "@zeit/next-typescript": "^1.1.1"
   },
   "scripts": {
     "dev": "next"

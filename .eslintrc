@@ -1,6 +1,6 @@
 {
   "extends": [
-    "./node_modules/@ts-mono/base/.eslintrc"
+    "@ts-mono/base"
   ],
   "settings": {
     "import/resolver": {
@@ -8,10 +8,7 @@
     }
   },
   "rules": {
-    "no-param-reassign": 0,
-
-    "import/no-extraneous-dependencies": [1],
-
+    "import/no-extraneous-dependencies": [2, { "optionalDependencies": true }],
     "react/prop-types": 0
   }
 }
