@@ -2,7 +2,10 @@
   "name": "@pets-bb/server",
   "version": "0.0.0",
   "dependencies": {
-    "koa": "^2.7.0",
-    "koa-router": "^7.4.0"
+    "apollo-server": "^2.5.0",
+    "graphql": "^14.3.0"
+  },
+  "scripts": {
+    "dev": "nodemon --exec 'ts-node' index.ts"
   }
 }

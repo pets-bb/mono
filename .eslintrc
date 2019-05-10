@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@ts-mono/base"
+    "./node_modules/@ts-mono/base/.eslintrc.json"
   ],
   "settings": {
     "import/resolver": {

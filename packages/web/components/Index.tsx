@@ -1,9 +1,8 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { DispatchProp } from 'react-redux'
-import { connect } from '../utils/reduxHelpers'
-import { InitState } from '../store'
-import actions from '../store/login/actions'
+import { Query, QueryResult } from 'react-apollo'
+import { gql } from 'apollo-boost'
+import { NextStaticLifecycle } from 'next'
 
 const Div = styled.div`
   ${(_p: {}) => css``}
@@ -11,20 +10,14 @@ const Div = styled.div`
 
 type Props = {
   text: string
-} & InitState &
-  DispatchProp
+}
 
-const Index: React.FunctionComponent<Props> = ({ login, text, dispatch }) => {
-  const handleLogin = () => {
-    dispatch(actions.login())
-  }
-
+const Index: React.FunctionComponent<Props> = ({ text }) => {
   return (
-    <Div onClick={handleLogin}>
+    <Div>
       <h1>{text}</h1>
-      login: {String(login.isLogin)}
     </Div>
   )
 }
 
-export default connect(Index)
+export default Index

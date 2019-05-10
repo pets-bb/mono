@@ -1,29 +1,35 @@
+import NextApp, { Container } from 'next/app'
 import React from 'react'
-import { Provider } from 'react-redux'
-import App, { Container, NextAppContext } from 'next/app'
-import withRedux from 'next-redux-wrapper'
-import { Store } from 'redux'
-import makeStore from '../store'
+import { ApolloProvider, Query } from 'react-apollo'
+import { gql } from 'apollo-boost'
+import withApollo from '../gql/witApollo'
 
-class MyApp extends App<{ store: Store }> {
-  static async getInitialProps({ Component, ctx }: NextAppContext) {
-    const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx)
-      : {}
-
-    return { pageProps }
-  }
-
+class App extends NextApp {
   render() {
-    const { Component, pageProps, store } = this.props
+    const { Component, pageProps, apolloClient } = this.props
+
     return (
       <Container>
-        <Provider store={store}>
+        <ApolloProvider client={apolloClient}>
+          <Query<{
+            isLogin: boolean
+          }>
+            query={gql`
+              {
+                isLogin @client
+              }
+            `}
+          >
+            {({ data }) => {
+              return <pre>{JSON.stringify(data)}</pre>
+            }}
+          </Query>
+          <div>Debug</div>
           <Component {...pageProps} />
-        </Provider>
+        </ApolloProvider>
       </Container>
     )
   }
 }
 
-export default withRedux(makeStore)(MyApp)
+export default withApollo(App)
