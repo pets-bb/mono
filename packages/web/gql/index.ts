@@ -1,6 +1,8 @@
-import { ApolloClient, HttpLink, InMemoryCache, gql, Mut } from 'apollo-boost'
+import { ApolloClient, HttpLink, InMemoryCache, gql } from 'apollo-boost'
 import fetch from 'isomorphic-fetch'
 import { isBrowser } from '@pets-bb/share'
+
+export * from 'apollo-boost'
 
 const create = (initState = {}) =>
   new ApolloClient({
@@ -21,22 +23,8 @@ const create = (initState = {}) =>
 
     resolvers: {
       Mutation: {
-        switchLogin: (_, args, { cache }) => {
-          console.log(args)
-          debugger
-          cache.writeData({
-            data: {
-              isLogin,
-            },
-          })
-        },
+        switchLogin: (_, args, { cache }) => {},
       },
-      // Query: {
-      //   isLogin: () => {
-      //     debugger
-      //     return undefined
-      //   },
-      // },
     },
   })
 
@@ -49,7 +37,9 @@ const init = (initState = {}) => {
     return create(initState)
   }
 
-  if (!apolloClient) apolloClient = create(initState)
+  if (!apolloClient) {
+    apolloClient = create(initState)
+  }
 
   // Reuse client on the client-side
   return apolloClient
