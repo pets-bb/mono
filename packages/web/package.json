@@ -2,8 +2,11 @@
   "name": "@pets-bb/web",
   "version": "0.0.0",
   "dependencies": {
+    "@lingui/core": "^2.7.4",
+    "@lingui/macro": "^2.7.4",
     "apollo-boost": "^0.3.1",
     "graphql": "^14.3.0",
+    "i18next": "^15.1.0",
     "isomorphic-fetch": "^2.2.1",
     "next": "^8.1.0",
     "react": "^16.8.6",

@@ -25,13 +25,18 @@
     "dev": "run-p dev:*"
   },
   "devDependencies": {
+    "@lingui/cli": "^2.7.4",
+    "@lingui/loader": "^2.7.4",
     "@ts-mono/base": "rwu823/ts-mono#base/latest",
     "@types/isomorphic-fetch": "^0.0.35",
+    "@types/lingui__core": "^2.7.0",
+    "@types/lingui__macro": "^2.7.3",
     "@types/next": "^8.0.5",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
     "@types/styled-components": "^4.1.14",
     "@zeit/next-typescript": "^1.1.1",
+    "babel-plugin-macros": "^2.5.1",
     "babel-plugin-styled-components": "^1.10.0",
     "nodemon": "^1.19.0",
     "npm-run-all": "^4.1.5",

@@ -1,0 +1,42 @@
+{
+  "你好世界": {
+    "origin": [
+      [
+        "pages/index.tsx",
+        23
+      ]
+    ]
+  },
+  "{0, plural, one {# book} other {# books}}": {
+    "origin": [
+      [
+        "pages/index.tsx",
+        25
+      ]
+    ]
+  },
+  "你好世界2": {
+    "origin": [
+      [
+        "pages/index.tsx",
+        31
+      ]
+    ]
+  },
+  "你好世界3": {
+    "origin": [
+      [
+        "pages/index.tsx",
+        32
+      ]
+    ]
+  },
+  "我的名字是 {name}": {
+    "origin": [
+      [
+        "pages/index.tsx",
+        33
+      ]
+    ]
+  }
+}

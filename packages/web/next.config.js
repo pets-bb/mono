@@ -14,6 +14,10 @@ module.exports = withTypescript({
       }
     })
 
+    config.module.rules.push({
+      test: /\.po$/,
+      use: '@lingui/loader',
+    })
     return config
   },
 })
