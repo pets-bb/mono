@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import { gql } from 'apollo-boost'
 import { NextFunctionComponent } from 'next'
+import Link from 'next/link'
 import styled, { css } from 'styled-components'
 import { Query, Mutation } from 'react-apollo'
 import { t, plural } from '@lingui/macro'
-// import '@lingui/macro'
-import Index from '../components/Index'
-import initApollo from '../gql'
+import Index from '../../components/Index'
+import initApollo from '../../gql'
 
-import i18n from '../utils/i18n'
+// import i18n from '../../utils/i18n'
 
 const client = initApollo()
 
@@ -30,10 +30,6 @@ const X: NextFunctionComponent<{ isLogin: boolean }> = p => {
   return (
     <div>
       <Index text={'hello world'} />
-
-      {i18n._(t`Hello world`)}
-      {i18n._(t`Hello world2`)}
-      {i18n._(t`Hello world3`)}
 
       <Query<{
         books: {

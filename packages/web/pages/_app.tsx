@@ -7,32 +7,17 @@ import { isBrowser } from '@pets-bb/share'
 import withApollo from '../gql/witApollo'
 
 class App extends NextApp<{ i18nMessages: { [key: string]: string } }> {
-  // static async getInitialProps(_ctx: NextAppContext) {
-  //   const i18Instance = i18next.createInstance()
+  // static async getInitialProps({ Component, ctx }: NextAppContext) {
+  //   let pageProps = {}
 
-  //   i18Instance.init({
-  //     lng: 'zh',
-  //     load: 'languageOnly',
-  //     debug: true,
-  //     interpolation: {
-  //       prefix: '{',
-  //       suffix: '}',
-  //     },
-  //     resources: {
-  //       zh: {
-  //         translation: {
-  //           hello: 'world',
-  //         },
-  //       },
-  //     },
-  //   })
+  //   if (Component.getInitialProps) {
+  //     pageProps = await Component.getInitialProps(ctx)
+  //   }
 
   //   return {
-  //     messages: {
-  //       hello: 'world',
-  //     },
-
-  //     pageProps: {},
+  //     // pageProps,
+  //     a: 1,
+  //     b: 2,
   //   }
   // }
 

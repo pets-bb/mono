@@ -5,7 +5,6 @@ import { setupI18n } from '@lingui/core'
 const en = require('../locale/en/messages.json')
 const zh = require('../locale/zh/messages.json')
 
-console.log({ en, zh })
 export const i18n = setupI18n({
   language: 'zh',
   catalogs: {
