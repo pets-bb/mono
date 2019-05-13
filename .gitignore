@@ -3,5 +3,5 @@ node_modules
 coverage
 .next
 
-locale/_build
-locale/**/*.js
+**/locale/_build
+**/locale/**/*.js
