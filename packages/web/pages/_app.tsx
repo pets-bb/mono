@@ -2,42 +2,39 @@ import NextApp, { Container, NextAppContext } from 'next/app'
 import React from 'react'
 import { ApolloProvider, Query } from 'react-apollo'
 import { gql } from 'apollo-boost'
-import i18next from 'i18next'
+// import i18next from 'i18next'
 import { isBrowser } from '@pets-bb/share'
 import withApollo from '../gql/witApollo'
 
-if (isBrowser) {
-  console.log(window.__NEXT_DATA__, 11111)
-}
 class App extends NextApp<{ i18nMessages: { [key: string]: string } }> {
-  static async getInitialProps(_ctx: NextAppContext) {
-    const i18Instance = i18next.createInstance()
+  // static async getInitialProps(_ctx: NextAppContext) {
+  //   const i18Instance = i18next.createInstance()
 
-    i18Instance.init({
-      lng: 'zh',
-      load: 'languageOnly',
-      debug: true,
-      interpolation: {
-        prefix: '{',
-        suffix: '}',
-      },
-      resources: {
-        zh: {
-          translation: {
-            hello: 'world',
-          },
-        },
-      },
-    })
+  //   i18Instance.init({
+  //     lng: 'zh',
+  //     load: 'languageOnly',
+  //     debug: true,
+  //     interpolation: {
+  //       prefix: '{',
+  //       suffix: '}',
+  //     },
+  //     resources: {
+  //       zh: {
+  //         translation: {
+  //           hello: 'world',
+  //         },
+  //       },
+  //     },
+  //   })
 
-    return {
-      messages: {
-        hello: 'world',
-      },
+  //   return {
+  //     messages: {
+  //       hello: 'world',
+  //     },
 
-      pageProps: {},
-    }
-  }
+  //     pageProps: {},
+  //   }
+  // }
 
   render() {
     const { Component, pageProps, apolloClient } = this.props

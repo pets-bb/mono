@@ -23,6 +23,7 @@
     "@zeit/next-typescript": "^1.1.1"
   },
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "build": "lingui compile && next build"
   }
 }

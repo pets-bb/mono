@@ -15,7 +15,7 @@ module.exports = withTypescript({
     })
 
     config.module.rules.push({
-      test: /\.po$/,
+      test: /(\.po|messages\.json)$/,
       use: '@lingui/loader',
     })
     return config
