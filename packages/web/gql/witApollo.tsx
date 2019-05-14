@@ -2,16 +2,14 @@ import React from 'react'
 import { getDataFromTree } from 'react-apollo'
 import { NextStaticLifecycle } from 'next'
 import Head from 'next/head'
-import { NextAppContext } from 'next/app'
+import NextApp, { NextAppContext } from 'next/app'
 import { isNode } from '@pets-bb/share'
 
-import initApollo from '.'
+import initApollo, { CreateApolloClient } from '.'
 
-export default (
-  App: React.ComponentType<any> & NextStaticLifecycle<{}, NextAppContext>,
-) => {
+const withApollo = (App: any) => {
   return class Apollo extends React.Component {
-    private apolloClient: any
+    private apolloClient: CreateApolloClient
 
     static displayName = 'withApollo(App)'
 
@@ -59,3 +57,5 @@ export default (
     }
   }
 }
+
+export default withApollo

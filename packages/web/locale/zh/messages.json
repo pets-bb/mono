@@ -1,0 +1,29 @@
+{
+  "Hello1 {name}": {
+    "translation": "{name}{name} 您好",
+    "origin": [
+      [
+        "pages/index/index.tsx",
+        31
+      ]
+    ]
+  },
+  "Hello2": {
+    "translation": "您好2",
+    "origin": [
+      [
+        "pages/index/index.tsx",
+        32
+      ]
+    ]
+  },
+  "Hello3": {
+    "translation": "您好3",
+    "origin": [
+      [
+        "pages/index/index.tsx",
+        33
+      ]
+    ]
+  }
+}

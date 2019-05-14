@@ -31,6 +31,7 @@
     "@types/isomorphic-fetch": "^0.0.35",
     "@types/lingui__core": "^2.7.0",
     "@types/lingui__macro": "^2.7.3",
+    "@types/lingui__react": "^2.5.2",
     "@types/next": "^8.0.5",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",

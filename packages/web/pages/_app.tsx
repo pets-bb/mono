@@ -2,27 +2,16 @@ import NextApp, { Container, NextAppContext } from 'next/app'
 import React from 'react'
 import { ApolloProvider, Query } from 'react-apollo'
 import { gql } from 'apollo-boost'
-// import i18next from 'i18next'
-import { isBrowser } from '@pets-bb/share'
+
 import withApollo from '../gql/witApollo'
+import { withI18n, WithI18n } from '../utils/i18n'
+import GlobalContext from '../utils/GlobalContext'
 
-class App extends NextApp<{ i18nMessages: { [key: string]: string } }> {
-  // static async getInitialProps({ Component, ctx }: NextAppContext) {
-  //   let pageProps = {}
+import { CreateApolloClient } from '../gql'
 
-  //   if (Component.getInitialProps) {
-  //     pageProps = await Component.getInitialProps(ctx)
-  //   }
-
-  //   return {
-  //     // pageProps,
-  //     a: 1,
-  //     b: 2,
-  //   }
-  // }
-
+class App extends NextApp<{ apolloClient: CreateApolloClient } & WithI18n> {
   render() {
-    const { Component, pageProps, apolloClient } = this.props
+    const { Component, pageProps, apolloClient, i18n } = this.props
 
     return (
       <Container>
@@ -41,11 +30,13 @@ class App extends NextApp<{ i18nMessages: { [key: string]: string } }> {
             }}
           </Query>
           <div>Debug</div>
-          <Component {...pageProps} t={() => ''} />
+          <GlobalContext.Provider value={{ i18n }}>
+            <Component {...pageProps} i18n={i18n} />
+          </GlobalContext.Provider>
         </ApolloProvider>
       </Container>
     )
   }
 }
 
-export default withApollo(App)
+export default withApollo(withI18n(App))

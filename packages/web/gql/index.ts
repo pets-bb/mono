@@ -28,7 +28,9 @@ const create = (initState = {}) =>
     },
   })
 
-let apolloClient: ReturnType<typeof create>
+export type CreateApolloClient = ReturnType<typeof create>
+
+let apolloClient: CreateApolloClient
 
 const init = (initState = {}) => {
   // Make sure to create a new client for every server-side request so that data

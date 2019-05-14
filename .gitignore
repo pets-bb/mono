@@ -5,6 +5,3 @@ coverage
 
 **/locale/_build
 **/locale/**/*.js
-
-**/locales/_build
-**/locales/**/*.js

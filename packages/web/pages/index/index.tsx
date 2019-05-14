@@ -1,34 +1,30 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { NextFunctionComponent } from 'next'
 import Link from 'next/link'
+import { isBrowser } from '@pets-bb/share'
 import styled, { css } from 'styled-components'
 import { Query, Mutation } from 'react-apollo'
-import { t, plural } from '@lingui/macro'
+import { t } from '@lingui/macro'
+
 import Ind from '../../components/Index'
 import initApollo, { gql } from '../../gql'
-
-// import i18n from '../../utils/i18n'
-
-const client = initApollo()
-
-client.writeData<{
-  isLogin: boolean
-}>({
-  data: {
-    isLogin: false,
-  },
-})
+import { withI18n, WithI18n } from '../../utils/i18n'
+import GlobalContext from '../../utils/GlobalContext'
 
 const H1 = styled.h1`
   color: red;
 `
-const Index: NextFunctionComponent<{ isLogin: boolean }> = p => {
+
+type Props = {} & WithI18n
+
+const Index: NextFunctionComponent<Props> = () => {
   const name = 'Fred'
-  const counts = 2
+  const { i18n } = useContext(GlobalContext)
 
   return (
     <div>
       <Ind text={'hello world'} />
+      <h2>{i18n._(t`Hello1 ${name}`)}</h2>
 
       <Query<{
         books: {
@@ -52,16 +48,7 @@ const Index: NextFunctionComponent<{ isLogin: boolean }> = p => {
               <ul>
                 {!loading &&
                   data!.books.map(book => (
-                    <li
-                      key={book.title}
-                      onClick={() => {
-                        client.writeData({
-                          data: {
-                            isLogin: true,
-                          },
-                        })
-                      }}
-                    >
+                    <li key={book.title}>
                       {book.title} - {book.author}
                     </li>
                   ))}
@@ -74,24 +61,4 @@ const Index: NextFunctionComponent<{ isLogin: boolean }> = p => {
   )
 }
 
-Index.getInitialProps = async () => {
-  const lng = 'en'
-  const { default: messages } = await import(`./locale/${lng}/messages.json`)
-
-  return { messages }
-}
-
-// X.getInitialProps = async () => {
-//   const res = await client.query<{ isLogin: boolean }>({
-//     query: gql`
-//       {
-//         isLogin @client
-//       }
-//     `,
-//   })
-
-//   return {
-//     isLogin: res.data.isLogin,
-//   }
-// }
 export default Index
