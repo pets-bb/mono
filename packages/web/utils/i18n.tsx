@@ -1,8 +1,7 @@
 import React from 'react'
 import { setupI18n, I18n } from '@lingui/core'
 import dynamic from 'next/dynamic'
-
-// type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+import { Omit } from 'utility-types'
 
 export type WithI18n = { i18n: I18n }
 const lang = 'zh'

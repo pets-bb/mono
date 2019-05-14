@@ -1,17 +1,9 @@
 {
   "extends": "../../tsconfig",
-  "exclude": [
-
-  ],
   "compilerOptions": {
     "baseUrl": ".",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "target": "esnext",
-
-    "typeRoots": [
-      "../../node_modules/@types",
-      "../../@types"
-    ]
   }
 }

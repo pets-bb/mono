@@ -19,6 +19,7 @@
   "optionalDependencies": {
     "@pets-bb/share": "0.0.0",
     "@pets-bb/web": "0.0.0",
+    "utility-types": "3.7.0",
     "@zeit/next-typescript": "^1.1.1"
   },
   "scripts": {

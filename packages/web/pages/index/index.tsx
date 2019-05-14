@@ -1,25 +1,22 @@
-import React, { useEffect, useContext } from 'react'
-import { NextFunctionComponent } from 'next'
-import Link from 'next/link'
-import { isBrowser } from '@pets-bb/share'
-import styled, { css } from 'styled-components'
-import { Query, Mutation } from 'react-apollo'
 import { t } from '@lingui/macro'
-
+import { useGlobal } from '@pets-bb/web/hooks'
+import { NextFunctionComponent } from 'next'
+import React from 'react'
+import { Query } from 'react-apollo'
+import styled from 'styled-components'
 import Ind from '../../components/Index'
-import initApollo, { gql } from '../../gql'
-import { withI18n, WithI18n } from '../../utils/i18n'
-import GlobalContext from '../../utils/GlobalContext'
+import { gql } from '../../gql'
 
 const H1 = styled.h1`
   color: red;
 `
 
-type Props = {} & WithI18n
+type Props = {}
 
 const Index: NextFunctionComponent<Props> = () => {
   const name = 'Fred'
-  const { i18n } = useContext(GlobalContext)
+
+  const { i18n } = useGlobal()
 
   return (
     <div>
