@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { t } from '@lingui/macro'
 import { NextFunctionComponent } from 'next'
-import i18n from '../../utils/i18n'
+// import i18n from '../../utils/i18n'
 
 const Div = styled.div`
   ${(_p: {}) => css`
@@ -14,7 +14,7 @@ type Props = {}
 
 const Users: NextFunctionComponent<Props> = _props => {
   console.log(_props)
-  return <Div>This is Users page. {i18n._(t`Hello world`)}</Div>
+  return <Div>This is Users page.</Div>
 }
 
 Users.getInitialProps = async () => {

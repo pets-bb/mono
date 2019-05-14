@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
-import { gql } from 'apollo-boost'
 import { NextFunctionComponent } from 'next'
 import Link from 'next/link'
 import styled, { css } from 'styled-components'
 import { Query, Mutation } from 'react-apollo'
 import { t, plural } from '@lingui/macro'
-import Index from '../../components/Index'
-import initApollo from '../../gql'
+import Ind from '../../components/Index'
+import initApollo, { gql } from '../../gql'
 
 // import i18n from '../../utils/i18n'
 
@@ -23,13 +22,13 @@ client.writeData<{
 const H1 = styled.h1`
   color: red;
 `
-const X: NextFunctionComponent<{ isLogin: boolean }> = p => {
+const Index: NextFunctionComponent<{ isLogin: boolean }> = p => {
   const name = 'Fred'
   const counts = 2
 
   return (
     <div>
-      <Index text={'hello world'} />
+      <Ind text={'hello world'} />
 
       <Query<{
         books: {
@@ -75,6 +74,13 @@ const X: NextFunctionComponent<{ isLogin: boolean }> = p => {
   )
 }
 
+Index.getInitialProps = async () => {
+  const lng = 'en'
+  const { default: messages } = await import(`./locale/${lng}/messages.json`)
+
+  return { messages }
+}
+
 // X.getInitialProps = async () => {
 //   const res = await client.query<{ isLogin: boolean }>({
 //     query: gql`
@@ -88,4 +94,4 @@ const X: NextFunctionComponent<{ isLogin: boolean }> = p => {
 //     isLogin: res.data.isLogin,
 //   }
 // }
-export default X
+export default Index
