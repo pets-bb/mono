@@ -1,11 +1,11 @@
 import { t } from '@lingui/macro'
+import Ind from '@pets-bb/web/components/Index'
+import { gql } from '@pets-bb/web/gql'
 import { useGlobal } from '@pets-bb/web/hooks'
 import { NextFunctionComponent } from 'next'
 import React from 'react'
 import { Query } from 'react-apollo'
 import styled from 'styled-components'
-import Ind from '../../components/Index'
-import { gql } from '../../gql'
 
 const H1 = styled.h1`
   color: red;

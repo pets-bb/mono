@@ -2,22 +2,24 @@ const withTypescript = require('@zeit/next-typescript')
 
 module.exports = withTypescript({
   webpack(config, options) {
+    config.module.rules.push(
+      {
+        test: /\.tsx?$/,
+        include: undefined,
+        use: [options.defaultLoaders.babel],
+      },
+      {
+        test: /(\.po|messages\.json)$/,
+        use: '@lingui/loader',
+      },
+    )
+
     config.module.rules.forEach(rule => {
-      rule.use.options.rootMode = 'upward'
-      const ruleContainsTs = rule.test.toString().includes('ts|tsx')
-      if (
-        ruleContainsTs &&
-        rule.use &&
-        rule.use.loader === 'next-babel-loader'
-      ) {
-        rule.include = undefined
+      if (rule.use.options) {
+        rule.use.options.rootMode = 'upward'
       }
     })
 
-    config.module.rules.push({
-      test: /(\.po|messages\.json)$/,
-      use: '@lingui/loader',
-    })
     return config
   },
 })

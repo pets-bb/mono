@@ -2,6 +2,9 @@
   "extends": "../../tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "target": "esnext",

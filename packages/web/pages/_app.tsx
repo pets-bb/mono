@@ -4,8 +4,9 @@ import { ApolloProvider, Query } from 'react-apollo'
 import { gql } from 'apollo-boost'
 
 import { setupI18n } from '@lingui/core'
+import { isBrowser } from '@pets-bb/share'
 import withApollo from '../gql/witApollo'
-import { withI18n, WithI18n } from '../utils/i18n'
+import { withI18n, WithI18n } from '../utils/withI18n'
 import GlobalContext from '../utils/GlobalContext'
 import { CreateApolloClient } from '../gql'
 
@@ -29,7 +30,8 @@ class App extends NextApp<{ apolloClient: CreateApolloClient } & WithI18n> {
             `}
           >
             {({ data }) => {
-              console.log(data)
+              if (isBrowser) console.log(data)
+
               return null
             }}
           </Query>
