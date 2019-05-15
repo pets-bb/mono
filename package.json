@@ -28,6 +28,8 @@
     "@lingui/cli": "^2.7.4",
     "@lingui/loader": "^2.7.4",
     "@ts-mono/base": "rwu823/ts-mono#base/latest",
+    "@types/cheerio": "^0.22.11",
+    "@types/got": "^9.4.4",
     "@types/isomorphic-fetch": "^0.0.35",
     "@types/lingui__core": "^2.7.0",
     "@types/lingui__macro": "^2.7.3",
