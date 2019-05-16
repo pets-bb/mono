@@ -13,6 +13,16 @@
         "ts-node/register/transpile-only",
         "${workspaceFolder}/packages/server/index.ts"
       ],
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ts",
+      "args": [
+        "-r",
+        "ts-node/register/transpile-only",
+        "${workspaceFolder}/${relativeFile}"
+      ],
     }
   ]
 }
