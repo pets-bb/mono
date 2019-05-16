@@ -1,8 +1,40 @@
-import { ApolloServer, gql } from 'apollo-server'
+import { ApolloServer, gql, IResolvers } from 'apollo-server'
 import got from 'got'
-import cheerio from 'cheerio'
+import qs from './utils/qs'
 
-import xml from 'xml'
+const petsApi = got.extend({
+  baseUrl: 'https://asms.coa.gov.tw/Asms/api/',
+})
+
+const resolvers: IResolvers = {
+  Query: {
+    pets: async (parent, args) => {
+      console.log(args)
+      debugger
+      const res = await petsApi.get(`/ViewNowAnimal`, {
+        query: qs({
+          pageSize: '2',
+          currentPage: '1',
+          sortDirection: 'DESC',
+          sortFields: 'AcceptDate',
+        }),
+      })
+
+      return JSON.parse(res.body)
+    },
+    hello: () => 'Hello Server Apollo 333333!!!!!!!!!',
+    books: () => [
+      {
+        title: 'Harry Potter and the Chamber of Secrets',
+        // author: 'J.K. Rowling',
+      },
+      {
+        title: 'Jurassic Park',
+        // author: 'Michael Crichton',
+      },
+    ],
+  },
+}
 
 const server = new ApolloServer({
   typeDefs: gql`
@@ -12,47 +44,19 @@ const server = new ApolloServer({
     }
 
     type Pet {
-      id: ID!
-      age: Int
-      sex: String
+      AnimalId: ID!
+      Sex: Int
+      SexName: String
     }
 
     type Query {
       books: [Book]
       hello: String
-      pets: [Pet]
+      pets(id: ID!): [Pet]
     }
   `,
 
-  resolvers: {
-    Query: {
-      pets: async () => {
-        const res = await got(
-          'https://asms.coa.gov.tw/Asms/api/ViewNowAnimal?pageSize=200&currentPage=1&sortDirection=DESC&sortFields=AcceptDate',
-        )
-
-        const $ = cheerio.load(res.body, {
-          normalizeWhitespace: true,
-          xmlMode: true,
-        })
-
-        $.xml()
-
-        debugger
-      },
-      hello: () => 'Hello Server Apollo 333333!!!!!!!!!',
-      books: () => [
-        {
-          title: 'Harry Potter and the Chamber of Secrets',
-          author: 'J.K. Rowling',
-        },
-        {
-          title: 'Jurassic Park',
-          author: 'Michael Crichton',
-        },
-      ],
-    },
-  },
+  resolvers,
 })
 const PORT = 3001
 server.listen(PORT).then(({ url }) => {
