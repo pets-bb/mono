@@ -22,38 +22,6 @@ const Index: NextFunctionComponent<Props> = () => {
     <div>
       <Ind text={'hello world'} />
       <h2>{i18n._(t`Hello1 ${name}`)}</h2>
-
-      <Query<{
-        books: {
-          title: string
-          author: string
-        }[]
-      }>
-        query={gql`
-          query Books {
-            books {
-              title
-              author
-            }
-          }
-        `}
-      >
-        {({ loading, data }) => {
-          return (
-            <>
-              {loading ? 'Loading...' : ''}
-              <ul>
-                {!loading &&
-                  data!.books.map(book => (
-                    <li key={book.title}>
-                      {book.title} - {book.author}
-                    </li>
-                  ))}
-              </ul>
-            </>
-          )
-        }}
-      </Query>
     </div>
   )
 }

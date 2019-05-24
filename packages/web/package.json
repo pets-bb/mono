@@ -2,25 +2,26 @@
   "name": "@pets-bb/web",
   "version": "0.0.0",
   "dependencies": {
-    "@lingui/core": "^2.7.4",
-    "@lingui/macro": "^2.7.4",
-    "apollo-boost": "^0.3.1",
-    "graphql": "^14.3.0",
+    "@lingui/core": "^2.8.3",
+    "@lingui/macro": "^2.8.3",
+    "apollo-boost": "0.3.1",
+    "graphql": "^14.3.1",
     "isomorphic-fetch": "^2.2.1",
     "next": "^8.1.0",
     "react": "^16.8.6",
-    "react-apollo": "^2.5.5",
+    "react-apollo": "^2.5.6",
     "react-dom": "^16.8.6",
     "rxjs": "^6.5.2",
     "rxjs-hooks": "^0.4.3",
     "styled-components": "^4.2.0",
+    "ts-optchain": "^0.1.7",
     "universal-rxjs-ajax": "^2.0.1"
   },
   "optionalDependencies": {
     "@pets-bb/share": "0.0.0",
     "@pets-bb/web": "0.0.0",
-    "utility-types": "3.7.0",
-    "@zeit/next-typescript": "^1.1.1"
+    "@zeit/next-typescript": "^1.1.1",
+    "utility-types": "3.7.0"
   },
   "scripts": {
     "dev": "next",

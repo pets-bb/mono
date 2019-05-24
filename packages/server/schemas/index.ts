@@ -13,7 +13,7 @@ export const schema = mergeSchemas({
     Book: {
       title: {
         fragment: '... on Booking { propertyId }',
-        resolve(parent: any, args: any, context: any, info: any) {
+        resolve(parent: any, _args: any, context: any, info: any) {
           return info.mergeInfo.delegateToSchema({
             schema: books,
             operation: 'query',

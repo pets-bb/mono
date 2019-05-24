@@ -7,13 +7,10 @@ module.exports = api => {
   api.cache(true)
 
   // adapt this to your setup
-  const presets = [
-    'next/babel',
-    '@zeit/next-typescript/babel', // if you use TypeScript
-  ]
+  const presets = ['next/babel', '@zeit/next-typescript/babel']
 
   return {
     presets,
-    plugins: [['styled-components', { ssr: isDev }], 'macros'],
+    plugins: [['styled-components', { ssr: isDev }], 'macros', 'ts-optchain'],
   }
 }
