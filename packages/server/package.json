@@ -4,7 +4,7 @@
   "dependencies": {
     "apollo-server": "^2.5.0",
     "cheerio": "^1.0.0-rc.3",
-    "got": "^9.6.0",
+    "got": "^11.8.5",
     "graphql": "^14.3.1",
     "graphql-tools": "^4.0.4",
     "pg": "^7.11.0"
